@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(to right, #363636, #5a5a5a, #363636);
+    text-align: center;
+}
+
+h1{
+    background-color: #a3a3a3;
+    border-radius: 20px 20px 0px 0px;
+    padding: 20px 0px;
+}
+
+section{
+    height: 520px;
+    position: absolute;
+    background-color: #363636;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow:2px 2px 10px;
+}
+
+.container{
+    height: 350px;
+    display: grid;
+    padding: 5px 30px 30px 30px;
+    grid-template-columns: repeat(4, 75px); /* Definindo três colunas com 75px de largura cada */
+    gap: 3px;
+}
+
+.number, .simbol, #resultado{
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.number{
+    background-color: #a3a3a3;
+}
+
+.simbol{
+    background-color: rgb(207, 135, 0);
+}
+
+#resultado{
+    background-color: cornflowerblue;
+}
+
+#operadores{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 310px;
+    height: 70px;
+    position: relative;
+}
+
+#operadores>#operador-atual{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #EEEEEE;
+    font-size: 2em;
+}
+
+#operadores>#operador-passado{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #eeeeeea4;
+}
