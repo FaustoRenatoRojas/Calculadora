@@ -37,22 +37,22 @@ class Calcular {
      
         switch (operation) {
             case "+":
-                operadorValue = passado + atual
+                operadorValue = passado + atual;
                 this.updateScreen(operadorValue, operation, atual, passado);
                 break;
             
             case "-":
-                operadorValue = passado + atual
+                operadorValue = passado - atual;
                 this.updateScreen(operadorValue, operation, atual, passado);
                 break;  
 
             case "×":
-                operadorValue = passado + atual
+                operadorValue = passado * atual;
                 this.updateScreen(operadorValue, operation, atual, passado);
                 break;
 
             case "÷":
-                operadorValue = passado + atual
+                operadorValue = passado / atual;
                 this.updateScreen(operadorValue, operation, atual, passado);
                 break;
 
@@ -130,6 +130,11 @@ class Calcular {
     processResultado() {
         const operation = operadorPassadoText.innerText.split(" ")[1];
         this.processOperation(operation);
+    }
+
+    // Inverte o sinal do valor atual
+    processSinalTrocado() {
+
     }
 }
 
