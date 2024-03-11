@@ -72,6 +72,10 @@ class Calcular {
                 this.processResultado();
                 break;
 
+            case "⁺⁄₋":
+                this.processSinalTrocado();
+                break;
+
             default:
                 return;
         }
@@ -128,12 +132,23 @@ class Calcular {
 
     // Processar Resultado
     processResultado() {
-        const operation = operadorPassadoText.innerText.split(" ")[1];
+        const operation = operadorPassadoText.innerText.split(" ")[0];
         this.processOperation(operation);
     }
 
     // Inverte o sinal do valor atual
     processSinalTrocado() {
+        // Obtém o número atual exibido na tela do computador
+        let currentValue = parseFloat(this.operadorAtualText.innerText);
+
+        // Verifica se o número atual é diferente de zero antes de inverter o sinal
+        if (currentValue !== 0) {
+            // Inverte o sinal do número
+            currentValue *= -1;
+
+            // Atualiza a tela da calculadora com o novo valor
+            this.operadorAtualText.innerText = currentValue;
+        }
 
     }
 }
@@ -144,10 +159,15 @@ buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         const value = e.target.innerText;
 
-        if (+value >= 0 || value === ",") {
+        // Verifica se o valor é o botão "+/-"
+        if (value === "+/-") {
+            calc.processSinalTrocado(); // Chama a função para trocar o sinal
+        } else if (+value >= 0 || value === ",") {
             calc.addDigit(value);
         } else {
             calc.processOperation(value);
         }
     });
 });
+       
+
